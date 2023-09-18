@@ -2,8 +2,8 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class EnterData {
-    public static Integer enterGuest(Integer countInCheck){
-        Integer person;
+    public static int enterGuest(Integer countInCheck){
+        int person;
         while (true) {
 
             System.out.println("Введите гостя: ");
@@ -30,7 +30,9 @@ public class EnterData {
                 readLine = scanner.nextLine();
                 if(readLine.trim().length()-readLine.trim().indexOf(".")<=3||readLine.trim().indexOf(".")==-1) {
                     price = new BigDecimal(readLine);
-                    if(price.compareTo(BigDecimal.ZERO)>=0){
+                    //Предыдущее условие >= соответствовало критериям задачи, стоимость не могла быть отрицательной, в данном случае она не может быть и нулевой,
+                    //хотя вполне могут быть подарки от заведения, акции или просто замена блюда.
+                    if(price.compareTo(BigDecimal.ZERO)>0){
                         break;
                     }
                 }
